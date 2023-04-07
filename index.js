@@ -2,7 +2,7 @@ require('dotenv').config()
 const axios = require("axios");
 const cheerio = require("cheerio");
 const chalk = require("chalk");
-const git = require("git");
+const git = require("korefile");
 const GHT_TOKEN = process.env.GHT_TOKEN
 const currentcodes =  axios
 .get("https://raw.githubusercontent.com/gamersindo1223/genshinautogift-fetchcodes/active_code.json")
