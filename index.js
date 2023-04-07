@@ -1,10 +1,9 @@
-require("dotenv").config();
+
 const axios = require("axios");
 const cheerio = require("cheerio");
 const chalk = require("chalk");
 const git = require("korefile");
 const fs = require("fs");
-const GHT_TOKEN = process.env.GHT_TOKEN;
 const currentcodes = axios
   .get(
     "https://raw.githubusercontent.com/gamersindo1223/genshinautogift-fetchcodes/main/active_code.json"
@@ -49,6 +48,7 @@ getcodes().then((scrapecode) => {
     console.log(chalk.yellow(`[Info] `) + `There isn't any new codes!`);
     return;
   }
-  fs.writeFileSync("active_code.json", scrapecode.toString())
+  console.log(scrapecode)
+  fs.writeFileSync("active_code.json", JSON.stringify(scrapecode))
   console.log(chalk.green(`[Info] `) + `All codes have been Updated!`);
 });
