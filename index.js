@@ -48,14 +48,6 @@ getcodes().then((scrapecode) => {
     console.log(chalk.yellow(`[Info] `) + `There isn't any new codes!`);
     return;
   }
-  let file = git.createKoreFile({
-    adaptor: git.createGitHubAdaptor({
-      owner: `gamersindo1223`,
-      repo: `genshinautogift-fetchcodes`,
-      ref: `heads/main`,
-      token: GHT_TOKEN,
-    }),
-  });
-  file.writeFile("active_code.json", scrapecode.toString());
+  fs.writeFile("active_code.json", scrapecode.toString())
   console.log(chalk.green(`[Info] `) + `All codes have been Updated!`);
 });
