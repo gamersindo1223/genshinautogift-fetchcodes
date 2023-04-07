@@ -56,6 +56,6 @@ getcodes().then((scrapecode) => {
       token: GHT_TOKEN,
     }),
   });
-  file.write("active_code.json", scrapecode.toString());
+  file.writeFile("active_code.json", scrapecode.toString());
   console.log(chalk.green(`[Info] `) + `All codes have been Updated!`);
 });
