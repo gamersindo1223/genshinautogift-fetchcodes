@@ -49,6 +49,6 @@ getcodes().then((scrapecode) => {
     console.log(chalk.yellow(`[Info] `) + `There isn't any new codes!`);
     return;
   }
-  fs.writeFile("active_code.json", scrapecode.toString())
+  fs.writeFileSync("active_code.json", scrapecode.toString())
   console.log(chalk.green(`[Info] `) + `All codes have been Updated!`);
 });
