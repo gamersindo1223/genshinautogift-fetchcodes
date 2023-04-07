@@ -51,7 +51,7 @@ getcodes().then((scrapecode) => {
   let file = git.createKoreFile({
     adaptor: git.createGitHubAdaptor({
       owner: `gamersindo1223`,
-      repo: `gamersindo1223/genshinautogift-fetchcodes`,
+      repo: `genshinautogift-fetchcodes`,
       ref: `heads/main`,
       token: GHT_TOKEN,
     }),
