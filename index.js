@@ -5,7 +5,7 @@ const chalk = require("chalk");
 const git = require("korefile");
 const GHT_TOKEN = process.env.GHT_TOKEN
 const currentcodes =  axios
-.get("https://raw.githubusercontent.com/gamersindo1223/genshinautogift-fetchcodes/active_code.json")
+.get("https://raw.githubusercontent.com/gamersindo1223/genshinautogift-fetchcodes/main/active_code.json")
 .then((response) => {response.data})
 function containsLowercase(str) {
   return /[a-z]/.test(str);
