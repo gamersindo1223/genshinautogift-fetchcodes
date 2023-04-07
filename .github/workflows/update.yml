@@ -1,7 +1,7 @@
 on:
   schedule:
     # Runs every day
-    - cron: '*/30 * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
           node index.js
         shell: bash
         env:
-        GHT_TOKEN: ${{ github.token }}
+          GHT_TOKEN: ${{ github.token }}
       - name: update active_codes.json
         run: |
           cd main
