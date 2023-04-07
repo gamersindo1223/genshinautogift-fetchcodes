@@ -1,12 +1,16 @@
-require('dotenv').config()
+require("dotenv").config();
 const axios = require("axios");
 const cheerio = require("cheerio");
 const chalk = require("chalk");
 const git = require("korefile");
-const GHT_TOKEN = process.env.GHT_TOKEN
-const currentcodes =  axios
-.get("https://raw.githubusercontent.com/gamersindo1223/genshinautogift-fetchcodes/main/active_code.json")
-.then((response) => {response.data})
+const GHT_TOKEN = process.env.GHT_TOKEN;
+const currentcodes = axios
+  .get(
+    "https://raw.githubusercontent.com/gamersindo1223/genshinautogift-fetchcodes/main/active_code.json"
+  )
+  .then((response) => {
+    response.data;
+  });
 function containsLowercase(str) {
   return /[a-z]/.test(str);
 }
@@ -46,11 +50,12 @@ getcodes().then((scrapecode) => {
   }
   let file = git.createKoreFile({
     adaptor: git.createGitHubAdaptor({
-        owner: `Gamersindo`,
-        repo: `gamersindo1223/genshinautogift-fetchcodes`,
-        ref: `heads/main`,
-        token: GHT_TOKEN
-    })
-});
+      owner: `gamersindo1223`,
+      repo: `gamersindo1223/genshinautogift-fetchcodes`,
+      ref: `heads/main`,
+      token: GHT_TOKEN,
+    }),
+  });
+  file.write("active_code.json", scrapecode.toString());
   console.log(chalk.green(`[Info] `) + `All codes have been Updated!`);
 });
